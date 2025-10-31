@@ -1,3 +1,4 @@
+
 #include "pch.h"
 #include "CppUnitTest.h"
 #include <iostream>
@@ -58,7 +59,18 @@ namespace TicTacToeTest
 			Assert::AreEqual(board.getSquareContents(2, 3), 'X');
 			Assert::IsFalse(board.isSquareEmpty(2, 3));
 		}
-
+		TEST_METHOD(SwitchPlayer)
+		{
+			Logger::WriteMessage("Testing for player switching");
+			Assert::AreEqual(board.getPlayerName(), 'X');
+			board.nextPlayer();
+			Assert::AreEqual(board.getPlayerName(), 'O');
+		} 
+		TEST_METHOD(GetPlayername) {
+			Logger::WriteMessage("Testing for get player name");
+			Assert::AreEqual(board.getPlayerName(), 'X');
+		}
+			
 	};
 }
 
